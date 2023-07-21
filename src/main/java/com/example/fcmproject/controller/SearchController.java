@@ -22,9 +22,9 @@ public class SearchController {
 
   @ResponseBody
   @GetMapping("")
-  public ResponseEntity<PracticeResponseDto> getSearch(@RequestBody PracticeRequestDto request) {
+  public ResponseEntity<PracticeResponseDto> addItem(@RequestBody PracticeRequestDto request) {
 
-    Optional<PracticeResponseDto> optPracticeDto = Optional.of(searchService.getSomething(request.getName()));
+    Optional<PracticeResponseDto> optPracticeDto = Optional.of(searchService.addSomething(request));
 
     return ResponseEntity.of(optPracticeDto);
   }
