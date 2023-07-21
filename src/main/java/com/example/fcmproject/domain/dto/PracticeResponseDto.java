@@ -19,8 +19,4 @@ public class PracticeResponseDto {
   public static PracticeResponseDto of(PracticeEntity p) {
     return PracticeResponseDto.builder().id(p.getId()).name(p.getName()).build();
   }
-
-  public PracticeEntity toEntity() {
-    return PracticeEntity.builder().id(id).name(name).build();
-  }
 }
