@@ -4,23 +4,30 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.example.fcmproject.domain.entity.Member;
 import java.util.List;
+import java.util.Optional;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 class MemoryMemberRepositoryTest {
 
-  MemoryMemberRepository repository = new MemoryMemberRepository();
+  private final MemberRepository repository;
 
-  @AfterEach
-  public void afterEach() {
-    repository.clearStore();
+  @Autowired
+  public MemoryMemberRepositoryTest(MemberRepository repository) {
+    this.repository = repository;
   }
+
+//  @AfterEach
+//  public void afterEach() {
+//    repository.clearStore();
+//  }
 
   @Test
   public void save() {
     Member member = new Member();
-    member.setName("spring");
+    member.setName("hello");
 
     repository.save(member);
 

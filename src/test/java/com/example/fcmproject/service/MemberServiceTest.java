@@ -4,29 +4,21 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.example.fcmproject.domain.entity.Member;
-import com.example.fcmproject.repository.MemoryMemberRepository;
+import com.example.fcmproject.repository.MemberRepository;
 import java.util.Optional;
+import lombok.AllArgsConstructor;
 import org.aspectj.lang.annotation.After;
+import org.hibernate.metamodel.internal.MemberResolver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+@AllArgsConstructor
 class MemberServiceTest {
 
-  MemberService memberService;
-  MemoryMemberRepository memberRepository;
-
-  @BeforeEach
-  public void beforeEach() {
-    memberRepository = new MemoryMemberRepository();
-    memberService = new MemberService(memberRepository);
-  }
-
-  @AfterEach
-  public void afterEach() {
-    memberRepository.clearStore();
-  }
+  private final MemberService memberService;
+  private final MemberRepository memberRepository;
 
   @Test
   void 회원가입() {
@@ -68,9 +60,5 @@ class MemberServiceTest {
 */
 
     //then
-  }
-
-  @Test
-  void findOne() {
   }
 }
